@@ -31,13 +31,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize services
+# Services
 extractor = ResumeExtractor()
 vectorstore = VectorStoreService()
 
-# Build vectorstore index for jobs at startup
+# Build vectorstore index on startup
 docs = [
-    {"content": job["description"] + " " + " ".join(job["skills"]), **job}
+    {
+        "content": job["description"] + " " + " ".join(job["skills"]),
+        **job
+    }
     for job in JOBS
 ]
 vectorstore.build_index(docs)
@@ -58,36 +61,36 @@ async def upload_resume(file: UploadFile = File(...)):
     # Validate file type
     if file.content_type not in ALLOWED_TYPES:
         raise HTTPException(
-            status_code=400, detail=f"Unsupported file type: {file.content_type}"
+            status_code=400,
+            detail=f"Unsupported file type: {file.content_type}"
         )
 
-    # Save uploaded file
+    # Save file
     save_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(save_path, "wb") as f:
         f.write(await file.read())
 
-    # Extract text from resume
+    # Extract text
     resume_text = extractor.extract_from_file(file)
+    resume_lower = resume_text.lower()
 
-    # Query vectorstore for top 3 matches (with scores)
+    # Query vectorstore
     top_matches = vectorstore.query(resume_text, k=3)
 
-    # Process matches and compute matched skills
-    resume_lower = resume_text.lower()
     results = []
     for match in top_matches:
-        score = match.get("similarity_score")
         job_skills = match.get("skills", [])
-        matched_skills = [
-            skill for skill in job_skills if skill.lower() in resume_lower
-        ]
+        matched_skills = [s for s in job_skills if s.lower() in resume_lower]
+
         results.append({
             "id": match.get("id"),
             "title": match.get("title"),
             "description": match.get("description"),
             "skills": job_skills,
             "matched_skills": matched_skills,
-            "similarity_score": score
+            "semantic_score": match.get("semantic_score"),
+            "keyword_score": match.get("keyword_score"),
+            "final_score": match.get("final_score"),
         })
 
     return {
