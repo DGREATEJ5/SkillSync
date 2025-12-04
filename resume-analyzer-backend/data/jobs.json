@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Python Backend Developer",
+    "description": "Build and maintain backend APIs using Python, FastAPI, SQL databases, and cloud services.",
+    "skills": ["Python", "FastAPI", "SQL", "REST APIs", "AWS"]
+  },
+  {
+    "id": 2,
+    "title": "Marketing Specialist",
+    "description": "Plan and execute marketing campaigns, manage social media, and analyze market trends.",
+    "skills": ["Marketing Strategy", "Social Media", "SEO", "Content Creation", "Analytics"]
+  },
+  {
+    "id": 3,
+    "title": "HR Coordinator",
+    "description": "Manage recruitment processes, employee relations, and HR documentation.",
+    "skills": ["Recruitment", "Employee Relations", "HR Policies", "Onboarding", "Communication"]
+  },
+  {
+    "id": 4,
+    "title": "Frontend Developer (React)",
+    "description": "Develop responsive UI components using React, JavaScript, HTML, CSS, and integrate APIs.",
+    "skills": ["React", "JavaScript", "HTML", "CSS", "REST APIs"]
+  },
+  {
+    "id": 5,
+    "title": "Machine Learning Engineer",
+    "description": "Build and deploy machine learning models including NLP, classification, and embeddings.",
+    "skills": ["Python", "TensorFlow", "PyTorch", "NLP", "Machine Learning"]
+  },
+  {
+    "id": 6,
+    "title": "Customer Success Manager",
+    "description": "Ensure customer satisfaction, manage client accounts, and provide product support.",
+    "skills": ["Customer Support", "Account Management", "CRM", "Communication", "Problem Solving"]
+  },
+  {
+    "id": 7,
+    "title": "AI Engineer (LLM/RAG)",
+    "description": "Design and deploy LLM-based applications, build RAG pipelines, embeddings, and chat systems.",
+    "skills": ["Python", "LLM", "Embeddings", "RAG", "Vector Databases"]
+  },
+  {
+    "id": 8,
+    "title": "DevOps Engineer",
+    "description": "Manage CI/CD pipelines, Docker containers, cloud services, and infrastructure automation.",
+    "skills": ["Docker", "Kubernetes", "AWS", "CI/CD", "Linux"]
+  },
+  {
+    "id": 9,
+    "title": "Full Stack Developer",
+    "description": "Work on frontend and backend systems using JavaScript, Python, React, and databases.",
+    "skills": ["React", "Node.js", "Python", "SQL", "REST APIs"]
+  },
+  {
+    "id": 10,
+    "title": "Data Analyst",
+    "description": "Analyze datasets, build dashboards, and create analytical reports for business insights.",
+    "skills": ["SQL", "Python", "Excel", "Data Visualization", "PowerBI"]
+  },
+  {
+    "id": 11,
+    "title": "Cloud Engineer (AWS)",
+    "description": "Build and manage AWS cloud infrastructure including Lambda, S3, IAM, EC2, and API Gateway.",
+    "skills": ["AWS", "S3", "Lambda", "API Gateway", "Cloud Security"]
+  },
+  {
+    "id": 12,
+    "title": "Financial Analyst",
+    "description": "Analyze financial statements, prepare reports, and assist in budgeting and forecasting.",
+    "skills": ["Financial Analysis", "Excel", "Budgeting", "Forecasting", "Accounting"]
+  },
+  {
+    "id": 13,
+    "title": "Operations Manager",
+    "description": "Oversee daily business operations, optimize processes, and manage teams.",
+    "skills": ["Operations Management", "Process Improvement", "Team Leadership", "Scheduling", "Communication"]
+  },
+  {
+    "id": 14,
+    "title": "Content Writer",
+    "description": "Create engaging content for blogs, social media, and websites, aligned with marketing strategy.",
+    "skills": ["Writing", "SEO", "Content Strategy", "Creativity", "Editing"]
+  },
+  {
+    "id": 15,
+    "title": "Graphic Designer",
+    "description": "Design visuals for digital and print media, including marketing materials and branding.",
+    "skills": ["Adobe Photoshop", "Illustrator", "Design", "Creativity", "Branding"]
+  }
+]

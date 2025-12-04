@@ -1,0 +1,8 @@
+# Ignore Python virtual environment directories
+resume-analyzer-backend/.env
+venv/
+
+# Optionally, you might want to ignore any Python-specific files
+__pycache__/
+*.pyc
+*.pyo
