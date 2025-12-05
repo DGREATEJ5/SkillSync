@@ -1,5 +1,3 @@
-# services/vectorstore_service.py
-
 import os
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
@@ -74,27 +72,29 @@ class VectorStoreService:
         documents = []
         for d in docs:
             chunks = self.chunker.split_text(d["content"])
-
-            # For very short job descriptions, don't chunk
-            if len(chunks) == 1:
-                documents.append(Document(page_content=chunks[0], metadata=d))
-            else:
-                for c in chunks:
-                    documents.append(Document(page_content=c, metadata=d))
+            for c in chunks:
+                documents.append(Document(page_content=c, metadata=d))
 
         self.vectorstore.add_documents(documents)
         print("Indexing complete.")
+
+    def add_job(self, job: dict):
+        """
+        Add a single job to Pinecone vectorstore with embeddings.
+        `job` must include at least 'content' and metadata fields like title, skills, etc.
+        """
+        chunks = self.chunker.split_text(job["content"])
+        documents = [Document(page_content=c, metadata=job) for c in chunks]
+        self.vectorstore.add_documents(documents)
+        print(f"Job '{job.get('title', 'unknown')}' added to vectorstore.")
 
     def _keyword_score(self, query, job):
         """Reward exact keyword / skill overlap."""
         q = query.lower()
         score = 0
-
-        # Count keyword hits from skills
         for skill in job.get("skills", []):
             if skill.lower() in q:
                 score += 1
-
         return score
 
     def _normalize(self, score):
@@ -103,10 +103,8 @@ class VectorStoreService:
 
     def query(self, query_text: str, k: int = 3):
         """Hybrid search: semantic + keyword + skill scoring."""
-
         query_embedding = self.embed_model.embed_query(query_text)
 
-        # Get top 10 first, rerank later
         search_response = self.index.query(
             vector=query_embedding,
             top_k=10,
@@ -116,11 +114,8 @@ class VectorStoreService:
         ranked = []
         for match in search_response.matches:
             metadata = match.metadata
-
             semantic = self._normalize(match.score)
             keyword = self._keyword_score(query_text, metadata)
-
-            # Final score (tweakable)
             final_score = (semantic * 0.7) + (keyword * 0.3)
 
             ranked.append({
@@ -133,7 +128,5 @@ class VectorStoreService:
                 "final_score": final_score
             })
 
-        # Sort by final score
         ranked = sorted(ranked, key=lambda x: x["final_score"], reverse=True)
-
         return ranked[:k]

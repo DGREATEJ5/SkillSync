@@ -1,0 +1,52 @@
+[
+    {
+        "company": "Amdocs",
+        "posted_by": "hr_001",
+        "title": "Python Backend Developer",
+        "description": "Build and maintain backend APIs using Python, FastAPI, SQL databases, and cloud services.",
+        "skills": ["Python", "FastAPI", "SQL", "REST APIs", "AWS"],
+        "employment_type": "Full-time",
+        "location": "Remote",
+        "salary_range": "60k-90k"
+    },
+    {
+        "company": "Google",
+        "posted_by": "hr_002",
+        "title": "Frontend Engineer",
+        "description": "Develop responsive web applications using React, TypeScript, and modern frontend tools.",
+        "skills": ["React", "TypeScript", "JavaScript", "CSS", "HTML"],
+        "employment_type": "Full-time",
+        "location": "Mountain View, CA",
+        "salary_range": "100k-140k"
+    },
+    {
+        "company": "Amazon",
+        "posted_by": "hr_003",
+        "title": "Data Scientist",
+        "description": "Analyze large datasets, build predictive models, and provide actionable insights.",
+        "skills": ["Python", "Pandas", "NumPy", "Machine Learning", "SQL"],
+        "employment_type": "Full-time",
+        "location": "Seattle, WA",
+        "salary_range": "120k-150k"
+    },
+    {
+        "company": "Facebook",
+        "posted_by": "hr_004",
+        "title": "AI Research Engineer",
+        "description": "Design and implement AI models, optimize algorithms, and contribute to research papers.",
+        "skills": ["Python", "PyTorch", "TensorFlow", "Deep Learning", "NLP"],
+        "employment_type": "Full-time",
+        "location": "Menlo Park, CA",
+        "salary_range": "130k-170k"
+    },
+    {
+        "company": "Microsoft",
+        "posted_by": "hr_005",
+        "title": "Cloud Solutions Architect",
+        "description": "Design scalable cloud architectures, implement Azure solutions, and guide engineering teams.",
+        "skills": ["Azure", "Cloud Architecture", "DevOps", "Python", "Docker"],
+        "employment_type": "Full-time",
+        "location": "Redmond, WA",
+        "salary_range": "110k-150k"
+    }
+]

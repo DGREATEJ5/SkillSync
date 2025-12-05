@@ -1,92 +1,299 @@
 [
-  {
-    "id": 1,
-    "title": "Python Backend Developer",
-    "description": "Build and maintain backend APIs using Python, FastAPI, SQL databases, and cloud services.",
-    "skills": ["Python", "FastAPI", "SQL", "REST APIs", "AWS"]
-  },
-  {
-    "id": 2,
-    "title": "Marketing Specialist",
-    "description": "Plan and execute marketing campaigns, manage social media, and analyze market trends.",
-    "skills": ["Marketing Strategy", "Social Media", "SEO", "Content Creation", "Analytics"]
-  },
-  {
-    "id": 3,
-    "title": "HR Coordinator",
-    "description": "Manage recruitment processes, employee relations, and HR documentation.",
-    "skills": ["Recruitment", "Employee Relations", "HR Policies", "Onboarding", "Communication"]
-  },
-  {
-    "id": 4,
-    "title": "Frontend Developer (React)",
-    "description": "Develop responsive UI components using React, JavaScript, HTML, CSS, and integrate APIs.",
-    "skills": ["React", "JavaScript", "HTML", "CSS", "REST APIs"]
-  },
-  {
-    "id": 5,
-    "title": "Machine Learning Engineer",
-    "description": "Build and deploy machine learning models including NLP, classification, and embeddings.",
-    "skills": ["Python", "TensorFlow", "PyTorch", "NLP", "Machine Learning"]
-  },
-  {
-    "id": 6,
-    "title": "Customer Success Manager",
-    "description": "Ensure customer satisfaction, manage client accounts, and provide product support.",
-    "skills": ["Customer Support", "Account Management", "CRM", "Communication", "Problem Solving"]
-  },
-  {
-    "id": 7,
-    "title": "AI Engineer (LLM/RAG)",
-    "description": "Design and deploy LLM-based applications, build RAG pipelines, embeddings, and chat systems.",
-    "skills": ["Python", "LLM", "Embeddings", "RAG", "Vector Databases"]
-  },
-  {
-    "id": 8,
-    "title": "DevOps Engineer",
-    "description": "Manage CI/CD pipelines, Docker containers, cloud services, and infrastructure automation.",
-    "skills": ["Docker", "Kubernetes", "AWS", "CI/CD", "Linux"]
-  },
-  {
-    "id": 9,
-    "title": "Full Stack Developer",
-    "description": "Work on frontend and backend systems using JavaScript, Python, React, and databases.",
-    "skills": ["React", "Node.js", "Python", "SQL", "REST APIs"]
-  },
-  {
-    "id": 10,
-    "title": "Data Analyst",
-    "description": "Analyze datasets, build dashboards, and create analytical reports for business insights.",
-    "skills": ["SQL", "Python", "Excel", "Data Visualization", "PowerBI"]
-  },
-  {
-    "id": 11,
-    "title": "Cloud Engineer (AWS)",
-    "description": "Build and manage AWS cloud infrastructure including Lambda, S3, IAM, EC2, and API Gateway.",
-    "skills": ["AWS", "S3", "Lambda", "API Gateway", "Cloud Security"]
-  },
-  {
-    "id": 12,
-    "title": "Financial Analyst",
-    "description": "Analyze financial statements, prepare reports, and assist in budgeting and forecasting.",
-    "skills": ["Financial Analysis", "Excel", "Budgeting", "Forecasting", "Accounting"]
-  },
-  {
-    "id": 13,
-    "title": "Operations Manager",
-    "description": "Oversee daily business operations, optimize processes, and manage teams.",
-    "skills": ["Operations Management", "Process Improvement", "Team Leadership", "Scheduling", "Communication"]
-  },
-  {
-    "id": 14,
-    "title": "Content Writer",
-    "description": "Create engaging content for blogs, social media, and websites, aligned with marketing strategy.",
-    "skills": ["Writing", "SEO", "Content Strategy", "Creativity", "Editing"]
-  },
-  {
-    "id": 15,
-    "title": "Graphic Designer",
-    "description": "Design visuals for digital and print media, including marketing materials and branding.",
-    "skills": ["Adobe Photoshop", "Illustrator", "Design", "Creativity", "Branding"]
-  }
+    {
+        "id": 1,
+        "company": "Amdocs",
+        "posted_by": "hr_001",
+        "title": "Python Backend Developer",
+        "description": "Build and maintain backend APIs using Python, FastAPI, SQL databases, and cloud services.",
+        "skills": [
+            "Python",
+            "FastAPI",
+            "SQL",
+            "REST APIs",
+            "AWS"
+        ],
+        "employment_type": "Full-time",
+        "location": "Remote",
+        "salary_range": "60k\u201390k"
+    },
+    {
+        "id": 2,
+        "company": "Google",
+        "posted_by": "hr_002",
+        "title": "Marketing Specialist",
+        "description": "Plan and execute marketing campaigns, manage social media, and analyze market trends.",
+        "skills": [
+            "Marketing Strategy",
+            "Social Media",
+            "SEO",
+            "Content Creation",
+            "Analytics"
+        ],
+        "employment_type": "Hybrid",
+        "location": "Taguig",
+        "salary_range": "40k\u201360k"
+    },
+    {
+        "id": 3,
+        "company": "SM Supermalls",
+        "posted_by": "hr_003",
+        "title": "HR Coordinator",
+        "description": "Manage recruitment processes, employee relations, and HR documentation.",
+        "skills": [
+            "Recruitment",
+            "Employee Relations",
+            "HR Policies",
+            "Onboarding",
+            "Communication"
+        ],
+        "employment_type": "Full-time",
+        "location": "Makati",
+        "salary_range": "35k\u201350k"
+    },
+    {
+        "id": 4,
+        "company": "Shopee",
+        "posted_by": "hr_004",
+        "title": "Frontend Developer (React)",
+        "description": "Develop responsive UI components using React, JavaScript, HTML, CSS, and integrate APIs.",
+        "skills": [
+            "React",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "REST APIs"
+        ],
+        "employment_type": "Remote",
+        "location": "Philippines",
+        "salary_range": "70k\u2013100k"
+    },
+    {
+        "id": 5,
+        "company": "OpenAI",
+        "posted_by": "hr_005",
+        "title": "Machine Learning Engineer",
+        "description": "Build and deploy machine learning models including NLP, classification, and embeddings.",
+        "skills": [
+            "Python",
+            "TensorFlow",
+            "PyTorch",
+            "NLP",
+            "Machine Learning"
+        ],
+        "employment_type": "Full-time",
+        "location": "Remote",
+        "salary_range": "120k\u2013160k"
+    },
+    {
+        "id": 6,
+        "company": "HubSpot",
+        "posted_by": "hr_006",
+        "title": "Customer Success Manager",
+        "description": "Ensure customer satisfaction, manage client accounts, and provide product support.",
+        "skills": [
+            "Customer Support",
+            "Account Management",
+            "CRM",
+            "Communication",
+            "Problem Solving"
+        ],
+        "employment_type": "Hybrid",
+        "location": "Pasig",
+        "salary_range": "40k\u201355k"
+    },
+    {
+        "id": 7,
+        "company": "Microsoft",
+        "posted_by": "hr_007",
+        "title": "AI Engineer (LLM/RAG)",
+        "description": "Design and deploy LLM-based applications, build RAG pipelines, embeddings, and chat systems.",
+        "skills": [
+            "Python",
+            "LLM",
+            "Embeddings",
+            "RAG",
+            "Vector Databases"
+        ],
+        "employment_type": "Full-time",
+        "location": "Remote",
+        "salary_range": "150k\u2013200k"
+    },
+    {
+        "id": 8,
+        "company": "Accenture",
+        "posted_by": "hr_008",
+        "title": "DevOps Engineer",
+        "description": "Manage CI/CD pipelines, Docker containers, cloud services, and infrastructure automation.",
+        "skills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "CI/CD",
+            "Linux"
+        ],
+        "employment_type": "Full-time",
+        "location": "Manila",
+        "salary_range": "90k\u2013130k"
+    },
+    {
+        "id": 9,
+        "company": "Globe Telecom",
+        "posted_by": "hr_009",
+        "title": "Full Stack Developer",
+        "description": "Work on frontend and backend systems using JavaScript, Python, React, and databases.",
+        "skills": [
+            "React",
+            "Node.js",
+            "Python",
+            "SQL",
+            "REST APIs"
+        ],
+        "employment_type": "Hybrid",
+        "location": "Quezon City",
+        "salary_range": "70k\u2013110k"
+    },
+    {
+        "id": 10,
+        "company": "Grab",
+        "posted_by": "hr_010",
+        "title": "Data Analyst",
+        "description": "Analyze datasets, build dashboards, and create analytical reports for business insights.",
+        "skills": [
+            "SQL",
+            "Python",
+            "Excel",
+            "Data Visualization",
+            "PowerBI"
+        ],
+        "employment_type": "Full-time",
+        "location": "Makati",
+        "salary_range": "50k\u201380k"
+    },
+    {
+        "id": 11,
+        "company": "AWS Philippines",
+        "posted_by": "hr_011",
+        "title": "Cloud Engineer (AWS)",
+        "description": "Build and manage AWS cloud infrastructure including Lambda, S3, IAM, EC2, and API Gateway.",
+        "skills": [
+            "AWS",
+            "S3",
+            "Lambda",
+            "API Gateway",
+            "Cloud Security"
+        ],
+        "employment_type": "Full-time",
+        "location": "Taguig",
+        "salary_range": "110k\u2013150k"
+    },
+    {
+        "id": 12,
+        "company": "BPI",
+        "posted_by": "hr_012",
+        "title": "Financial Analyst",
+        "description": "Analyze financial statements, prepare reports, and assist in budgeting and forecasting.",
+        "skills": [
+            "Financial Analysis",
+            "Excel",
+            "Budgeting",
+            "Forecasting",
+            "Accounting"
+        ],
+        "employment_type": "Full-time",
+        "location": "Makati",
+        "salary_range": "45k\u201370k"
+    },
+    {
+        "id": 13,
+        "company": "Lazada",
+        "posted_by": "hr_013",
+        "title": "Operations Manager",
+        "description": "Oversee daily business operations, optimize processes, and manage teams.",
+        "skills": [
+            "Operations Management",
+            "Process Improvement",
+            "Team Leadership",
+            "Scheduling",
+            "Communication"
+        ],
+        "employment_type": "Full-time",
+        "location": "Mandaluyong",
+        "salary_range": "60k\u201385k"
+    },
+    {
+        "id": 14,
+        "company": "Canva",
+        "posted_by": "hr_014",
+        "title": "Content Writer",
+        "description": "Create engaging content for blogs, social media, and websites, aligned with marketing strategy.",
+        "skills": [
+            "Writing",
+            "SEO",
+            "Content Strategy",
+            "Creativity",
+            "Editing"
+        ],
+        "employment_type": "Remote",
+        "location": "Philippines",
+        "salary_range": "30k\u201345k"
+    },
+    {
+        "id": 15,
+        "company": "Figma",
+        "posted_by": "hr_015",
+        "title": "Graphic Designer",
+        "description": "Design visuals for digital and print media, including marketing materials and branding.",
+        "skills": [
+            "Adobe Photoshop",
+            "Illustrator",
+            "Design",
+            "Creativity",
+            "Branding"
+        ],
+        "employment_type": "Full-time",
+        "location": "Remote",
+        "salary_range": "40k\u201365k"
+    },
+    {
+        "company": "Nasdaq",
+        "posted_by": "me",
+        "title": "Java Developer",
+        "description": "develop java applications",
+        "skills": [
+            "Java",
+            "Springboot"
+        ],
+        "employment_type": "Contract",
+        "location": "Remote",
+        "salary_range": "45k",
+        "id": 16
+    },
+    {
+        "company": "Nasdaq",
+        "posted_by": "me",
+        "title": "Java Developer",
+        "description": "Develop java applications",
+        "skills": [
+            "Java",
+            "Springboot"
+        ],
+        "employment_type": "Contract",
+        "location": "Remote",
+        "salary_range": "45k",
+        "id": 17
+    },
+    {
+        "company": "Nasdaq",
+        "posted_by": "me",
+        "title": "Java Developer",
+        "description": "Develop java applications",
+        "skills": [
+            "Java",
+            "Springboot"
+        ],
+        "employment_type": "Contract",
+        "location": "Remote",
+        "salary_range": "45k",
+        "id": 18
+    }
 ]

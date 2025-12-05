@@ -1,9 +1,10 @@
 import os
 import json
-from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi import FastAPI, UploadFile, File, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from services.extract_service import ResumeExtractor
 from services.vectorstore_service import VectorStoreService
+from services.llm_service import enhance_job_matches
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -35,10 +36,10 @@ app.add_middleware(
 extractor = ResumeExtractor()
 vectorstore = VectorStoreService()
 
-# Build vectorstore index on startup
+# Build vectorstore index ON STARTUP
 docs = [
     {
-        "content": job["description"] + " " + " ".join(job["skills"]),
+        "content": f"{job['description']} {' '.join(job['skills'])}",
         **job
     }
     for job in JOBS
@@ -55,7 +56,6 @@ ALLOWED_TYPES = [
     "text/plain"
 ]
 
-
 @app.post("/upload_resume")
 async def upload_resume(file: UploadFile = File(...)):
     # Validate file type
@@ -65,18 +65,22 @@ async def upload_resume(file: UploadFile = File(...)):
             detail=f"Unsupported file type: {file.content_type}"
         )
 
-    # Save file
+    # Save uploaded file
     save_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(save_path, "wb") as f:
         f.write(await file.read())
 
-    # Extract text
+    # Extract text from resume
     resume_text = extractor.extract_from_file(file)
     resume_lower = resume_text.lower()
 
-    # Query vectorstore
+    # Vectorstore hybrid search
     top_matches = vectorstore.query(resume_text, k=3)
 
+    # GPT-enhanced recommendation
+    gpt_recommendation = enhance_job_matches(resume_text, top_matches)
+
+    # Compute matched skills
     results = []
     for match in top_matches:
         job_skills = match.get("skills", [])
@@ -94,10 +98,73 @@ async def upload_resume(file: UploadFile = File(...)):
         })
 
     return {
+        "recommendation": gpt_recommendation,
         "matches": results,
         "saved_file": save_path,
         "content_type": file.content_type
     }
+
+@app.post("/add_job")
+async def add_job(job: dict = Body(...)):
+    """
+    Add a new job to jobs.json and update vectorstore.
+    Required fields: title, description, skills, company, posted_by, employment_type, location, salary_range
+    """
+    required_fields = [
+        "title",
+        "description",
+        "skills",
+        "company",
+        "posted_by",
+        "employment_type",
+        "location",
+        "salary_range"
+    ]
+    for field in required_fields:
+        if field not in job:
+            raise HTTPException(status_code=400, detail=f"Missing field: {field}")
+
+    # Read current jobs
+    with open(JOBS_PATH, "r", encoding="utf-8") as f:
+        jobs = json.load(f)
+
+    # Generate new ID
+    new_id = max([j["id"] for j in jobs]) + 1 if jobs else 1
+    job["id"] = new_id
+
+    # Append and save
+    jobs.append(job)
+    with open(JOBS_PATH, "w", encoding="utf-8") as f:
+        json.dump(jobs, f, indent=4)
+
+    # Update vectorstore
+    vectorstore.add_job({
+        "content": f"{job['description']} {' '.join(job['skills'])}",
+        **job
+    })
+
+    return {"message": "Job added successfully", "job": job}
+
+
+@app.post("/upload_jobs_json")
+async def upload_jobs_json(jobs: list[dict]):
+    added_jobs = []
+    for job in jobs:
+        # Validate required fields
+        required_fields = ["title", "description", "skills", "company", "posted_by", "employment_type", "location", "salary_range"]
+        for field in required_fields:
+            if field not in job:
+                raise HTTPException(status_code=400, detail=f"Missing field: {field}")
+        
+        # Add directly to Pinecone
+        vectorstore.add_job({
+            "content": f"{job['description']} {' '.join(job['skills'])}",
+            **job
+        })
+        added_jobs.append(job)
+
+    return {"message": f"{len(added_jobs)} jobs uploaded and indexed successfully."}
+
 
 
 @app.get("/")
